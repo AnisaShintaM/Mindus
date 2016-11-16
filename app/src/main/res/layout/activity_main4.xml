@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ListView
+        android:id="@+id/lvToDoList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/panelA"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:background="@android:color/holo_blue_dark"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="39dp"
+                android:text="Welcome minduser!"
+                android:id="@+id/textView"
+                android:textAlignment="center"
+                android:textIsSelectable="false"
+                style="@style/TextAppearance.AppCompat.Large" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/panelB"
+            android:layout_width="match_parent"
+            android:layout_height="431dp"
+            android:background="@android:color/background_light"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Make some ..."
+                android:id="@+id/textView2"
+                android:textSize="@dimen/abc_text_size_large_material" />
+
+            <CheckBox
+                android:layout_width="164dp"
+                android:layout_height="wrap_content"
+                android:text="New CheckBox"
+                android:id="@+id/checkBox1"
+                android:layout_weight="0.05" />
+            <CheckBox
+                android:layout_width="164dp"
+                android:layout_height="wrap_content"
+                android:text="New CheckBox"
+                android:id="@+id/checkBox2"
+                android:layout_weight="0.05" />
+            <CheckBox
+                android:layout_width="164dp"
+                android:layout_height="wrap_content"
+                android:text="New CheckBox"
+                android:id="@+id/checkBox3"
+                android:layout_weight="0.05" />
+            <CheckBox
+                android:layout_width="164dp"
+                android:layout_height="wrap_content"
+                android:text="New CheckBox"
+                android:id="@+id/checkBox4"
+                android:layout_weight="0.05" />
+            <CheckBox
+                android:layout_width="164dp"
+                android:layout_height="wrap_content"
+                android:text="New CheckBox"
+                android:id="@+id/checkBox5"
+                android:layout_weight="0.05" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@android:color/holo_blue_dark"
+        android:clickable="true"
+        android:src="@drawable/ic_add_black_24dp"
+        app:layout_anchor="@id/lvToDoList"
+        app:layout_anchorGravity="bottom|right|end"/>
+</android.support.design.widget.CoordinatorLayout>
+
