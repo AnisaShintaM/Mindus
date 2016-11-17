@@ -24,7 +24,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="id.sch.smktelkom_mlg.project.xirpl101101928.mindus.MainActivity" />
         </activity>
-        <activity android:name=".Main3Activity"></activity>
+        <activity android:name=".Main3Activity" />
+        <activity android:name=".Tambah_Activity"></activity>
     </application>
 
 </manifest>
