@@ -60,8 +60,7 @@
                 android:textColorHint="#c5c5c5"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_weightSum="1">
+                android:orientation="vertical">
 
                 <EditText
                     android:paddingTop="25dp"
