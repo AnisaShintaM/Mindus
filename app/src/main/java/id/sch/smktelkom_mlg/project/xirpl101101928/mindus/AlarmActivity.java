@@ -1,13 +1,10 @@
-package id.sch.smktelkom_mlg.project.xirpl101101928.mindus.adapter;
+package id.sch.smktelkom_mlg.project.xirpl101101928.mindus;
 
 import android.app.AlarmManager;
-import android.app.IntentService;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.BundleCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -18,7 +15,7 @@ import java.util.Calendar;
 /**
  * Created by user on 18/11/2016.
  */
-public class AlarmActivity  extends AppCompatActivity{
+public class AlarmActivity  extends AppCompatActivity {
     AlarmManager alarmManager;
     private PendingIntent pendingIntent;
     private TimePicker alarmTimePicker;
