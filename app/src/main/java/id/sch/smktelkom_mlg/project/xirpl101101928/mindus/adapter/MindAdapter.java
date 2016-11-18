@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import id.sch.smktelkom_mlg.learn.mindusbismillah.R;
-import id.sch.smktelkom_mlg.learn.mindusbismillah.model.Mind;
+import id.sch.smktelkom_mlg.project.xirpl101101928.mindus.R;
+import id.sch.smktelkom_mlg.project.xirpl101101928.mindus.model.Mind;
 
 /**
  * Created by A455L on 17/11/2016.
@@ -28,6 +28,9 @@ public class MindAdapter extends RecyclerView.Adapter<MindAdapter.ViewHolder> {
         this.hotelList = hotelList;
         mIMindAdapter = (IMindAdapter) context;
     }
+
+
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.mind_item_list, parent, false);
