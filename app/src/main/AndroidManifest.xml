@@ -26,15 +26,17 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="id.sch.smktelkom_mlg.project.xirpl101101928.mindus.MainActivity" />
         </activity>
-        <activity android:name=".Tambah_Activity" />
-        <activity android:name=".AlarmActivity"/>
+        <activity android:name=".AlarmActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity"> </activity>
+        <activity android:name=".RegisterActivity"></activity>
+
         <service
             android:name=".AlarmService"
             android:enabled="true" />
+
         <receiver android:name=".alarmreceiver" />
 
+        <activity android:name=".TambahActivity"></activity>
     </application>
 
 </manifest>

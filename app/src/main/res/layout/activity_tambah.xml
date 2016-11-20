@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/activity_detail"
+        android:id="@+id/activity_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -14,7 +14,7 @@
         android:paddingLeft="64dp"
         android:paddingRight="64dp"
         android:paddingTop="16dp"
-        tools:text="id.sch.smktelkom_mlg.project.xirpl101101928.mindus">
+        tools:context=".MindInputActivity">
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -31,11 +31,24 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Description"
-            android:paddingTop="4dp">
+            android:layout_marginTop="4dp"
+            android:hint="Deskription">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/editTextDeskripsi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:hint="Due date">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/editTextDue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine" />
@@ -45,28 +58,17 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Due Date">
+            android:layout_marginTop="4dp"
+            android:hint="Additional Information">
 
             <android.support.design.widget.TextInputEditText
-                android:id="@+id/editTextTanggal"
+                android:id="@+id/editTextDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Set Alarm">
-
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/editTextAlarm"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <ImageButton
+        <ImageView
             android:id="@+id/imageViewFoto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -78,10 +80,17 @@
 
         <Button
             android:id="@+id/buttonSimpan"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Simpan" />
+
+        <Button
+            android:id="@+id/buttonAlarm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Simpan" />
+            android:text="Set Alarm" />
 
     </LinearLayout>
 

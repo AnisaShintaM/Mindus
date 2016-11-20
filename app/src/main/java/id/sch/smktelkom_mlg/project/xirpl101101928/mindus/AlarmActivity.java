@@ -17,10 +17,10 @@ import java.util.Calendar;
  * Created by user on 18/11/2016.
  */
 public class AlarmActivity  extends AppCompatActivity {
+    private static AlarmActivity inst;
     AlarmManager alarmManager;
     private PendingIntent pendingIntent;
     private TimePicker alarmTimePicker;
-    private static AlarmActivity inst;
     private TextView alarmTextView;
 
     public static AlarmActivity instance() {
@@ -41,6 +41,7 @@ public class AlarmActivity  extends AppCompatActivity {
         alarmTextView = (TextView) findViewById(R.id.alarmText);
         ToggleButton alarmToggle = (ToggleButton) findViewById(R.id.alarmToggle);
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
     }
 
     public void onToggleClicked(View view) {

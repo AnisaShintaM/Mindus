@@ -36,25 +36,6 @@ public class MindMainActivity extends AppCompatActivity implements MindAdapter.I
     int itemPos;
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE_ADD && resultCode == RESULT_OK) {
-            Mind mind = (Mind) data.getSerializableExtra(HOTEL);
-            mList.add(mind);
-            if (isFiltered) mListAll.add(mind);
-            doFilter(mQuery);
-            //mAdapter.notifyDataSetChanged();
-        } else if (requestCode == REQUEST_CODE_EDIT && resultCode == RESULT_OK) {
-            Mind mind = (Mind) data.getSerializableExtra(HOTEL);
-            mList.remove(itemPos);
-            if (isFiltered) mListAll.remove(mListMapFilter.get(itemPos).intValue());
-            mList.add(itemPos, mind);
-            if (isFiltered) mListAll.add(mListMapFilter.get(itemPos), mind);
-            mAdapter.notifyDataSetChanged();
-        }
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mind_activity_main);
@@ -77,6 +58,27 @@ public class MindMainActivity extends AppCompatActivity implements MindAdapter.I
             }
         });
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_ADD && resultCode == RESULT_OK) {
+            Mind mind = (Mind) data.getSerializableExtra(HOTEL);
+            mList.add(mind);
+            if (isFiltered) mListAll.add(mind);
+            doFilter(mQuery);
+            //mAdapter.notifyDataSetChanged();
+        } else if (requestCode == REQUEST_CODE_EDIT && resultCode == RESULT_OK) {
+            Mind mind = (Mind) data.getSerializableExtra(HOTEL);
+            mList.remove(itemPos);
+            if (isFiltered) mListAll.remove(mListMapFilter.get(itemPos).intValue());
+            mList.add(itemPos, mind);
+            if (isFiltered) mListAll.add(mListMapFilter.get(itemPos), mind);
+            mAdapter.notifyDataSetChanged();
+        }
+    }
+
+
 
     private void goAdd() {
         startActivityForResult(new Intent(this, MindInputActivity.class), REQUEST_CODE_ADD);

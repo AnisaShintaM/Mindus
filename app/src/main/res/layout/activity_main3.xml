@@ -20,7 +20,7 @@
         android:textSize="30dp" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/editTextJudul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/textView6"
@@ -32,7 +32,7 @@
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/editText3">
+        android:layout_below="@+id/editTextJudul">
 
         <RadioButton
             android:id="@+id/radioButton3"
