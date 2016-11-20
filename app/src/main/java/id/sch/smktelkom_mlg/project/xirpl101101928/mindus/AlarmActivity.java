@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -19,14 +20,15 @@ public class AlarmActivity  extends AppCompatActivity {
     AlarmManager alarmManager;
     private PendingIntent pendingIntent;
     private TimePicker alarmTimePicker;
-    private static  AlarmActivity inst;
+    private static AlarmActivity inst;
     private TextView alarmTextView;
 
     public static AlarmActivity instance() {
+
         return inst;
     }
     @Override
-    public void onStart(){
+    public void onStart() {
         super.onStart();
         inst = this;
     }
@@ -43,17 +45,17 @@ public class AlarmActivity  extends AppCompatActivity {
 
     public void onToggleClicked(View view) {
         if (((ToggleButton) view).isChecked()) {
+            Log.d("MyActivity", "Alarm On");
             Calendar calendar = Calendar.getInstance();
             calendar.set(Calendar.HOUR_OF_DAY, alarmTimePicker.getCurrentHour());
             calendar.set(Calendar.MINUTE, alarmTimePicker.getCurrentMinute());
             Intent myIntent = new Intent(AlarmActivity.this, alarmreceiver.class);
-            pendingIntent = PendingIntent.getBroadcast(AlarmActivity.this  , 0, myIntent, 0);
+            pendingIntent = PendingIntent.getBroadcast(AlarmActivity.this, 0, myIntent, 0);
             alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
-        }
-        else
-        {
+        } else {
             alarmManager.cancel(pendingIntent);
             setAlarmText("");
+            Log.d("MyActivity", "Alarm Off");
         }
     }
 

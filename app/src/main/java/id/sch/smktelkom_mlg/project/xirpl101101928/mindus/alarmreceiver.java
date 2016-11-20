@@ -14,9 +14,9 @@ import android.support.v4.content.WakefulBroadcastReceiver;
  */
 public class alarmreceiver extends WakefulBroadcastReceiver {
     @Override
-    public void onReceive (final Context context, Intent intent) {
+    public void onReceive(final Context context, Intent intent) {
         AlarmActivity inst = AlarmActivity.instance();
-        inst.setAlarmText("Alarm! Do It Guys");
+        inst.setAlarmText("Alarm! Do It Guys!!");
 
         Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
         if (alarmUri == null) {
@@ -25,6 +25,7 @@ public class alarmreceiver extends WakefulBroadcastReceiver {
         Ringtone ringtone = RingtoneManager.getRingtone(context, alarmUri);
         ringtone.play();
 
+        //this will send a notification message
         ComponentName comp = new ComponentName(context.getPackageName(),
                 AlarmService.class.getName());
         startWakefulService(context, (intent.setComponent(comp)));

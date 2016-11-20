@@ -1,110 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="id.sch.smktelkom_mlg.project.xirpl101101928.mindus.MainActivity">
-
-    <ToggleButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Alarm On"
-        android:id="@+id/alarmToggle"
-        android:onClick="onToogleClicked"
-        android:checked="false"
-        android:layout_below="@+id/alarmTimePicker"
-        android:layout_centerHorizontal="true" />
+    tools:context="id.sch.smktelkom_mlg.project.xirpl101101928.mindus.MainActivity"
+    android:background="@color/colorPrimary">>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text=" "
-        android:id="@+id/alarmText"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/alarmToggle"/>
+        android:text="Hi Minduser "
+        android:id="@+id/textViewhallo"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#f85d8b"
+        android:textSize="50dp"
+        android:textColorHighlight="#f24976"
+        android:textStyle="bold"
+        style="@style/TextAppearance.AppCompat.Headline" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Set Alarm To Remind Me"
-        android:id="@+id/textView"
-        android:textColor="#15e1ec"
+        android:text="Set Your Alarm Here"
+        android:id="@+id/textViewMindus"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#f90bad"
         android:textSize="30dp"
-        android:layout_above="@+id/alarmTimePicker"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Minduser"
-        android:id="@+id/textView2"
-        android:textColor="#8fc3c6"
-        android:textSize="40dp"
-        android:layout_above="@+id/textView"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Why you must set your alarm?"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/textView3"
-        android:layout_centerHorizontal="true"
-        android:textColor="#ea1974" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="This alarm will be reminder for you, It&apos;s so helpfull"
-        android:id="@+id/textView5"
-        android:layout_below="@+id/textView4"
-        android:layout_centerHorizontal="true"
-        android:textColor="#ea1974" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Don&apos;t Forget to Do It Guys"
-        android:id="@+id/textView6"
-        android:layout_below="@+id/textView5"
-        android:layout_centerHorizontal="true"
-        android:textColor="#f10a0a" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hallo Minduser"
-        android:id="@+id/textView3"
-        android:layout_alignTop="@+id/alarmText"
-        android:layout_centerHorizontal="true"
-        android:textColor="#ea1974" />
+        android:paddingBottom="40dp"
+        android:textColorHighlight="#05ddcb"
+        android:textStyle="bold" />
 
     <TimePicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/alarmTimePicker"
+        android:layout_gravity="center_horizontal"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alarm On/Off"
+        android:id="@+id/alarmToggle"
+        android:onClick="onToggleClicked"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hallo"
-        android:id="@+id/textView7"
-        android:textColor="#8fc3c6"
-        android:textSize="40dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/alarmToggle"
-        android:layout_alignStart="@+id/alarmToggle" />
+        android:id="@+id/alarmText"
+        android:text=" "
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/alarmToggle"
+        android:layout_gravity="center_horizontal"/>
 
-</RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#f85d8b"
+        android:text="Set Your Alarm Here. Why?"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#f85d8b"
+        android:text="It's so helpfull to remind all of your homework"/>
+
+
+</LinearLayout>
