@@ -16,7 +16,7 @@ import id.sch.smktelkom_mlg.project.xirpl101101928.mindus.model.Mind;
 public class MindInputActivity extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_GET = 1;
-    EditText etTask;
+    EditText etSum;
     EditText etDeskripsi;
     EditText etDetail;
     EditText etDue;
@@ -29,10 +29,10 @@ public class MindInputActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mind_activity_input);
 
-        etTask = (EditText) findViewById(R.id.editTextNama);
+        etSum = (EditText) findViewById(R.id.editTextSummary);
         etDeskripsi = (EditText) findViewById(R.id.editTextDeskripsi);
+        etDue = (EditText) findViewById(R.id.editTextDue);
         etDetail = (EditText) findViewById(R.id.editTextDetail);
-        etDue = (EditText) findViewById(R.id.editTextLokasi);
         ivFoto = (ImageView) findViewById(R.id.imageViewFoto);
 
         ivFoto.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +59,7 @@ public class MindInputActivity extends AppCompatActivity {
     }
 
     private void fillData() {
-        etTask.setText(mind.task);
+        etSum.setText(mind.task);
         etDeskripsi.setText(mind.deskripsi);
         etDetail.setText(mind.detail);
         etDue.setText(mind.due);
@@ -68,13 +68,13 @@ public class MindInputActivity extends AppCompatActivity {
     }
 
     private void doSave() {
-        String task = etTask.getText().toString();
+        String sum = etSum.getText().toString();
         String deskripsi = etDeskripsi.getText().toString();
         String detail = etDetail.getText().toString();
         String due = etDue.getText().toString();
 
-        if (isValid(task, deskripsi, detail, due, uriFoto)) {
-            mind = new Mind(task, deskripsi, detail, due, uriFoto.toString());
+        if (isValid(sum, deskripsi, detail, due, uriFoto)) {
+            mind = new Mind(sum, deskripsi, detail, due, uriFoto.toString());
 
             Intent intent = new Intent();
             intent.putExtra(MindMainActivity.HOTEL, mind);
@@ -86,7 +86,7 @@ public class MindInputActivity extends AppCompatActivity {
     private boolean isValid(String judul, String deskripsi, String detail, String lokasi, Uri uriFoto) {
         boolean valid = true;
         if (judul.isEmpty()) {
-            setErrorEmpty(etTask);
+            setErrorEmpty(etSum);
             valid = false;
         }
         if (deskripsi.isEmpty()) {

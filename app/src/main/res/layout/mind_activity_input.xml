@@ -16,25 +16,23 @@
         android:paddingTop="16dp"
         tools:context=".MindInputActivity">
 
-
-
-        \        <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nama Hotel">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/editTextNama"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="Summary">
 
-    </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/editTextSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:hint="Deskripsi Hotel">
+            android:hint="Deskription">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/editTextDeskripsi"
@@ -47,10 +45,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:hint="Detail Hotel">
+            android:hint="Due date">
 
             <android.support.design.widget.TextInputEditText
-                android:id="@+id/editTextDetail"
+                android:id="@+id/editTextDue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine" />
@@ -61,10 +59,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:hint="Lokasi Hotel">
+            android:hint="Additional Information">
 
             <android.support.design.widget.TextInputEditText
-                android:id="@+id/editTextLokasi"
+                android:id="@+id/editTextDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -78,14 +76,14 @@
             android:layout_marginTop="4dp"
             android:minHeight="160dp"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_camera_black_24dp" />
+            app:srcCompat="@drawable/ic_menu_camera" />
 
         <Button
             android:id="@+id/buttonSimpan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Simpan" />
+            android:text="Set Alarm" />
     </LinearLayout>
 
 </ScrollView>
