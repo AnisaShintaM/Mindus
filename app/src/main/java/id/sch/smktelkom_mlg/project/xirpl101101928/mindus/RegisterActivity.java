@@ -1,6 +1,7 @@
 package id.sch.smktelkom_mlg.project.xirpl101101928.mindus;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -31,6 +32,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
 
         firebaseAuth = FirebaseAuth.getInstance();
+        if (firebaseAuth.getCurrentUser() != null) {
+            finish();
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        }
+
         progressDialog = new ProgressDialog(this);
         buttonRegister = (Button) findViewById(R.id.btn_login);
         editTextemail = (EditText) findViewById(R.id.editText4);
@@ -48,6 +54,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
         if (view == textViewregister) {
             // will open login activity
+            startActivity(new Intent(this, LoginActivity.class));
         }
     }
 
