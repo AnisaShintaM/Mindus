@@ -19,6 +19,8 @@ public class Main3Activity extends AppCompatActivity {
                 startActivity(new Intent(Main3Activity.this, TambahActivity.class));
             }
         });
+
+        setTitle("Main Page");
     }
 
     @Override

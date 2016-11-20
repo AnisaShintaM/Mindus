@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -41,6 +42,8 @@ public class TambahActivity extends AppCompatActivity {
             }
         });
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         findViewById(R.id.buttonAlarm).setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -62,6 +65,15 @@ public class TambahActivity extends AppCompatActivity {
         } else {
             setTitle("New Task");
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void fillData() {
@@ -116,7 +128,7 @@ public class TambahActivity extends AppCompatActivity {
     }
 
     private void setErrorEmpty(EditText editText) {
-        editText.setError(((TextInputLayout) editText.getParent().getParent()).getHint() + "Belum Diisi");
+        editText.setError(((TextInputLayout) editText.getParent()).getHint() + "Belum Diisi");
     }
 
     private void pickPhoto() {

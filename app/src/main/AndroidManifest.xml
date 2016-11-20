@@ -20,13 +20,13 @@
         <activity
             android:name=".Main3Activity"
             android:label="@string/title_activity_main2"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="id.sch.smktelkom_mlg.project.xirpl101101928.mindus.MainActivity" />
         </activity>
         <activity android:name=".AlarmActivity" />
+        <activity android:name=".MindMainActivity"></activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity"></activity>
 

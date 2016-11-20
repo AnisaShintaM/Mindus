@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -42,6 +43,16 @@ public class AlarmActivity  extends AppCompatActivity {
         ToggleButton alarmToggle = (ToggleButton) findViewById(R.id.alarmToggle);
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void onToggleClicked(View view) {

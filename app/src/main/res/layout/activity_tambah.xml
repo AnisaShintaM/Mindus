@@ -79,18 +79,25 @@
             app:srcCompat="@drawable/ic_menu_camera" />
 
         <Button
-            android:id="@+id/buttonSimpan"
-            android:layout_width="230dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Simpan" />
-
-        <Button
             android:id="@+id/buttonAlarm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Set Alarm" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Set your Alarm first then click Save" />
+
+        <Button
+            android:id="@+id/buttonSimpan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="SAVE MY TASK" />
 
     </LinearLayout>
 
