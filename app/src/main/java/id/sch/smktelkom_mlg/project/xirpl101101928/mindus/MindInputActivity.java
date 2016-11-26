@@ -49,7 +49,7 @@ public class MindInputActivity extends AppCompatActivity {
                         doSave();
                     }
                 });
-        mind = (Mind) getIntent().getSerializableExtra(MindMainActivity.HOTEL);
+        mind = (Mind) getIntent().getSerializableExtra(MindMainActivity.MIND);
         if (mind != null) {
             setTitle("Edit " + mind.task);
             fillData();
@@ -77,7 +77,7 @@ public class MindInputActivity extends AppCompatActivity {
             mind = new Mind(sum, deskripsi, detail, due, uriFoto.toString());
 
             Intent intent = new Intent();
-            intent.putExtra(MindMainActivity.HOTEL, mind);
+            intent.putExtra(MindMainActivity.MIND, mind);
             setResult(RESULT_OK, intent);
             finish();
         }

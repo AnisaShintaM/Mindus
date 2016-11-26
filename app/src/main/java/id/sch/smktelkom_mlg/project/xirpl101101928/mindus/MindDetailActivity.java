@@ -20,7 +20,8 @@ public class MindDetailActivity extends AppCompatActivity {
         setContentView(R.layout.mind_activity_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Mind mind = (Mind) getIntent().getSerializableExtra(MindMainActivity.HOTEL);
+
+        Mind mind = (Mind) getIntent().getSerializableExtra(MindMainActivity.MIND);
         setTitle(mind.task);
         ImageView ivFoto = (ImageView) findViewById(R.id.imageFoto);
         ivFoto.setImageURI(Uri.parse(mind.foto));

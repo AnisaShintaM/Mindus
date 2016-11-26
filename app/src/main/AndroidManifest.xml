@@ -10,10 +10,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -26,7 +26,9 @@
                 android:value="id.sch.smktelkom_mlg.project.xirpl101101928.mindus.MainActivity" />
         </activity>
         <activity android:name=".AlarmActivity" />
-        <activity android:name=".MindMainActivity"></activity>
+        <activity android:name=".MindMainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity"></activity>
 
@@ -37,6 +39,8 @@
         <receiver android:name=".alarmreceiver" />
 
         <activity android:name=".TambahActivity"></activity>
+        <activity android:name=".MindDetailActivity"> </activity>
+        <activity android:name=".MindInputActivity"> </activity>
     </application>
 
 </manifest>
