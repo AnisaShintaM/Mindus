@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.ToggleButton;
@@ -22,6 +23,7 @@ public class AlarmActivity  extends AppCompatActivity {
     AlarmManager alarmManager;
     private PendingIntent pendingIntent;
     private TimePicker alarmTimePicker;
+    private DatePicker alarmDatePicker;
     private TextView alarmTextView;
 
     public static AlarmActivity instance() {
@@ -39,11 +41,11 @@ public class AlarmActivity  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alarmnotification);
         alarmTimePicker = (TimePicker) findViewById(R.id.alarmTimePicker);
+        alarmDatePicker = (DatePicker) findViewById(R.id.alarmDatePicker);
         alarmTextView = (TextView) findViewById(R.id.alarmText);
         ToggleButton alarmToggle = (ToggleButton) findViewById(R.id.alarmToggle);
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -57,17 +59,21 @@ public class AlarmActivity  extends AppCompatActivity {
 
     public void onToggleClicked(View view) {
         if (((ToggleButton) view).isChecked()) {
-            Log.d("MyActivity", "Alarm On");
+            Log.d("MyActivity", "Alarm Off");
             Calendar calendar = Calendar.getInstance();
             calendar.set(Calendar.HOUR_OF_DAY, alarmTimePicker.getCurrentHour());
+            calendar.set(Calendar.SECOND, 0);
             calendar.set(Calendar.MINUTE, alarmTimePicker.getCurrentMinute());
+            calendar.set(Calendar.DAY_OF_MONTH, alarmDatePicker.getDayOfMonth());
+            calendar.set(Calendar.MONTH, alarmDatePicker.getMonth());
+            calendar.set(Calendar.YEAR, alarmDatePicker.getYear());
             Intent myIntent = new Intent(AlarmActivity.this, alarmreceiver.class);
             pendingIntent = PendingIntent.getBroadcast(AlarmActivity.this, 0, myIntent, 0);
-            alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
+            alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
         } else {
             alarmManager.cancel(pendingIntent);
             setAlarmText("");
-            Log.d("MyActivity", "Alarm Off");
+            Log.d("MyActivity", "Alarm On");
         }
     }
 

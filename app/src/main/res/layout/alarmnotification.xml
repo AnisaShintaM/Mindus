@@ -50,6 +50,12 @@
             android:layout_centerVertical="true"
             android:layout_gravity="center_horizontal" />
 
+        <DatePicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/alarmDatePicker"
+            android:layout_gravity="center_horizontal"></DatePicker>
+
         <ToggleButton
             android:id="@+id/alarmToggle"
             android:layout_width="wrap_content"

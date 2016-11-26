@@ -21,14 +21,13 @@ import id.sch.smktelkom_mlg.project.xirpl101101928.mindus.model.Mind;
 
 public class MindAdapter extends RecyclerView.Adapter<MindAdapter.ViewHolder> {
 
-    ArrayList<Mind> hotelList;
+    ArrayList<Mind> mindList;
     IMindAdapter mIMindAdapter;
 
-    public MindAdapter(Context context, ArrayList<Mind> hotelList) {
-        this.hotelList = hotelList;
+    public MindAdapter(Context context, ArrayList<Mind> mindList) {
+        this.mindList = mindList;
         mIMindAdapter = (IMindAdapter) context;
     }
-
 
 
     @Override
@@ -40,16 +39,16 @@ public class MindAdapter extends RecyclerView.Adapter<MindAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Mind hotel = hotelList.get(position);
-        holder.tvJudul.setText(hotel.task);
-        holder.tvDeskripsi.setText(hotel.deskripsi);
-        holder.ivFoto.setImageURI(Uri.parse(hotel.foto));
+        Mind mind = mindList.get(position);
+        holder.tvJudul.setText(mind.task);
+        holder.tvDeskripsi.setText(mind.deskripsi);
+        holder.ivFoto.setImageURI(Uri.parse(mind.foto));
     }
 
     @Override
     public int getItemCount() {
-        if (hotelList != null)
-            return hotelList.size();
+        if (mindList != null)
+            return mindList.size();
         return 0;
     }
 
@@ -64,7 +63,6 @@ public class MindAdapter extends RecyclerView.Adapter<MindAdapter.ViewHolder> {
         TextView tvJudul;
         TextView tvDeskripsi;
         Button bDelete;
-
 
 
         public ViewHolder(View itemView) {

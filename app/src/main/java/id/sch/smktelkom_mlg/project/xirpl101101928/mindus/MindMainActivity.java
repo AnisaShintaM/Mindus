@@ -24,7 +24,7 @@ import id.sch.smktelkom_mlg.project.xirpl101101928.mindus.model.Mind;
 
 public class MindMainActivity extends AppCompatActivity implements MindAdapter.IMindAdapter {
 
-    public static final String HOTEL = "hotel";
+    public static final String MIND = "mind";
     public static final int REQUEST_CODE_ADD = 88;
     public static final int REQUEST_CODE_EDIT = 99;
     ArrayList<Mind> mList = new ArrayList<>();
@@ -63,13 +63,13 @@ public class MindMainActivity extends AppCompatActivity implements MindAdapter.I
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_ADD && resultCode == RESULT_OK) {
-            Mind mind = (Mind) data.getSerializableExtra(HOTEL);
+            Mind mind = (Mind) data.getSerializableExtra(MIND);
             mList.add(mind);
             if (isFiltered) mListAll.add(mind);
             doFilter(mQuery);
             //mAdapter.notifyDataSetChanged();
         } else if (requestCode == REQUEST_CODE_EDIT && resultCode == RESULT_OK) {
-            Mind mind = (Mind) data.getSerializableExtra(HOTEL);
+            Mind mind = (Mind) data.getSerializableExtra(MIND);
             mList.remove(itemPos);
             if (isFiltered) mListAll.remove(mListMapFilter.get(itemPos).intValue());
             mList.add(itemPos, mind);
@@ -81,15 +81,15 @@ public class MindMainActivity extends AppCompatActivity implements MindAdapter.I
 
 
     private void goAdd() {
-        startActivityForResult(new Intent(this, MindInputActivity.class), REQUEST_CODE_ADD);
+        startActivityForResult(new Intent(this, TambahActivity.class), REQUEST_CODE_ADD);
     }
 
     private void fillData() {
         Resources resources = getResources();
-        String[] arJudul = resources.getStringArray(R.array.places);
+        String[] arJudul = resources.getStringArray(R.array.place_task);
         String[] arDeskripsi = resources.getStringArray(R.array.place_desc);
         String[] arDetail = resources.getStringArray(R.array.place_details);
-        String[] arLokasi = resources.getStringArray(R.array.place_locations);
+        String[] arLokasi = resources.getStringArray(R.array.place_due);
         TypedArray a = resources.obtainTypedArray(R.array.places_picture);
         String[] arFoto = new String[a.length()];
         for (int i = 0; i < arFoto.length; i++) {
@@ -173,7 +173,7 @@ public class MindMainActivity extends AppCompatActivity implements MindAdapter.I
     @Override
     public void doClick(int pos) {
         Intent intent = new Intent(this, MindDetailActivity.class);
-        intent.putExtra(HOTEL, mList.get(pos));
+        intent.putExtra(MIND, mList.get(pos));
         startActivity(intent);
     }
 

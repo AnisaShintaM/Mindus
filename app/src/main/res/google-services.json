@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "224917306075",
+    "firebase_url": "https://mindus-70263.firebaseio.com",
+    "project_id": "mindus-70263",
+    "storage_bucket": "mindus-70263.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224917306075:android:2aef7204481b2403",
+        "android_client_info": {
+          "package_name": "id.sch.smktelkom_mlg.project.xirpl101101928.mindus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224917306075-47d5hu1n45u3c421230foqnj26e2heci.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTy6HqKa2BQ3NgPcBf7qSBVc01FJ3iflk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -14,7 +14,11 @@ import android.widget.ImageView;
 
 import id.sch.smktelkom_mlg.project.xirpl101101928.mindus.model.Mind;
 
-public class TambahActivity extends AppCompatActivity {
+
+
+
+public class TambahActivity extends AppCompatActivity
+{
     static final int REQUEST_IMAGE_GET = 1;
     EditText etSum;
     EditText etDeskripsi;
@@ -42,8 +46,6 @@ public class TambahActivity extends AppCompatActivity {
             }
         });
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         findViewById(R.id.buttonAlarm).setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -58,7 +60,8 @@ public class TambahActivity extends AppCompatActivity {
                 doSave();
             }
         });
-        mind = (Mind) getIntent().getSerializableExtra(MindMainActivity.HOTEL);
+
+        mind = (Mind) getIntent().getSerializableExtra(MindMainActivity.MIND);
         if (mind != null) {
             setTitle("Edit " + mind.task);
             fillData();
@@ -95,7 +98,7 @@ public class TambahActivity extends AppCompatActivity {
             mind = new Mind(sum, deskripsi, detail, due, uriFoto.toString());
 
             Intent intent = new Intent();
-            intent.putExtra(MindMainActivity.HOTEL, mind);
+            intent.putExtra(MindMainActivity.MIND, mind);
             setResult(RESULT_OK, intent);
             finish();
         }
