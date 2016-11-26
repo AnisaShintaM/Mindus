@@ -5,24 +5,23 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login2);
 
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_login).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, LoginActivity2.class));
+                startActivity(new Intent(LoginActivity2.this, Main3Activity.class));
             }
         });
-
-        findViewById(R.id.buttonList).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.TextView3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MindMainActivity.class));
+                startActivity(new Intent(LoginActivity2.this, RegisterActivity.class));
             }
         });
     }

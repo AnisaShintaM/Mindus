@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,59 +19,70 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
+
     private Button buttonRegister;
-    private EditText editTextemail;
-    private EditText editTextpassword;
-    private TextView textViewregister;
+    private EditText EditTextEmail;
+    private EditText EditTextPassword;
+    private EditText EditTextrptPassword;
+    private TextView textViewsignin;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-
         firebaseAuth = FirebaseAuth.getInstance();
-        if (firebaseAuth.getCurrentUser() != null) {
-            finish();
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-        }
-
         progressDialog = new ProgressDialog(this);
-        buttonRegister = (Button) findViewById(R.id.btn_login);
-        editTextemail = (EditText) findViewById(R.id.editText4);
-        editTextpassword = (EditText) findViewById(R.id.editText5);
-        textViewregister = (TextView) findViewById(R.id.textView9);
-        buttonRegister.setOnClickListener(this);
-        textViewregister.setOnClickListener(this);
+        buttonRegister = (Button) findViewById(R.id.btn_register);
 
+        EditTextEmail = (EditText) findViewById(R.id.et_email);
+        EditTextPassword = (EditText) findViewById(R.id.et_password);
+        textViewsignin = (TextView) findViewById(R.id.TextView3);
+        buttonRegister.setOnClickListener(this);
+        textViewsignin.setOnClickListener(this);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        findViewById(R.id.TextView3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RegisterActivity.this, LoginActivity2.class));
+            }
+        });
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onClick(View view) {
         if (view == buttonRegister) {
-            registeruser();
+            registerUser();
         }
-        if (view == textViewregister) {
-            // will open login activity
-            startActivity(new Intent(this, LoginActivity.class));
+        if (view == textViewsignin) {
+
         }
     }
 
-    private void registeruser() {
-        String email = editTextemail.getText().toString().trim();
-        String password = editTextpassword.getText().toString().trim();
+    private void registerUser() {
+        String email = EditTextEmail.getText().toString().trim();
+        String password = EditTextPassword.getText().toString().trim();
 
         if (TextUtils.isEmpty(email)) {
-            Toast.makeText(this, "Please Enter Email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter email", Toast.LENGTH_SHORT).show();
             return;
         }
         if (TextUtils.isEmpty(password)) {
-            Toast.makeText(this, "Please ENter Password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter password", Toast.LENGTH_SHORT).show();
             return;
         }
-        progressDialog.setMessage("Registering User");
+        progressDialog.setMessage("Registering User...");
         progressDialog.show();
 
         firebaseAuth.createUserWithEmailAndPassword(email, password)
@@ -78,11 +90,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(RegisterActivity.this, "Register Successfully", Toast.LENGTH_SHORT);
+                            Toast.makeText(RegisterActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(RegisterActivity.this, "Could not register. Please Try Again", Toast.LENGTH_SHORT);
-
+                            Toast.makeText(RegisterActivity.this, "Could not register. Please try again ", Toast.LENGTH_SHORT).show();
                         }
+
                     }
                 });
     }
