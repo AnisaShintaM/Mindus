@@ -8,6 +8,7 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.content.WakefulBroadcastReceiver;
+import android.util.Log;
 
 /**
  * Created by user on 18/11/2016.
@@ -15,20 +16,16 @@ import android.support.v4.content.WakefulBroadcastReceiver;
 public class alarmreceiver extends WakefulBroadcastReceiver {
     @Override
     public void onReceive(final Context context, Intent intent) {
-        AlarmActivity inst = AlarmActivity.instance();
-        inst.setAlarmText("Alarm! Do It Guys!!");
 
-        Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
-        if (alarmUri == null) {
-            alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        }
-        Ringtone ringtone = RingtoneManager.getRingtone(context, alarmUri);
-        ringtone.play();
+        Log.e("Receiver", "OKAY!");
 
-        //this will send a notification message
-        ComponentName comp = new ComponentName(context.getPackageName(),
-                AlarmService.class.getName());
-        startWakefulService(context, (intent.setComponent(comp)));
-        setResultCode(Activity.RESULT_OK);
+        String my_string = intent.getExtras().getString("extra");
+
+        Log.e("Receiver", my_string);
+
+        Intent service_intent = new Intent(context, AlarmService.class);
+        service_intent.putExtra("extra", my_string);
+        context.startService(service_intent);
+
     }
 }

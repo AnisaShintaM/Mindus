@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+        android:background="@drawable/bg"
+    android:layout_height="match_parent"
+     android:weightSum="1">
+
+    <TextView
+        android:layout_width="182dp"
+        android:layout_height="33dp"
+        android:text="About Us"
+        android:textSize="35dp"
+        android:textColor="#fa105e"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@string/abc_searchview_description_search"
+        android:textStyle="bold"
+        android:layout_weight="0.23" />
+
+    <ImageView
+        android:layout_width="248dp"
+        android:layout_height="191dp"
+        android:id="@+id/imageView2"
+        android:src="@drawable/logo_mindus"
+        android:layout_gravity="center"
+        android:padding="20dp"
+        android:layout_weight="0.19" />
+
+
+        <TextView
+            android:layout_width="292dp"
+            android:layout_height="188dp"
+            android:text="MindUs has made by students of Telkom Schools Malang in order to pay responbilitiy of project in the end of third semester. We are Annisa Shinta, Dhenarra Erine, Miftakhul Rohmah, and Rafidia Aqil.The idea appeared when we want to make a simple application but it must be useful for others. This reminder help people to remind what things they have to do in. Hopefully MindUs can be helpful and worth for MindUser."
+
+            android:id="@+id/textView2"
+            android:textSize="15dp"
+            android:textColor="#fcfbfb"
+            android:textAlignment="center"
+            android:layout_gravity="center_horizontal"
+            android:allowUndo="false"
+            android:layout_weight="0.44" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonstart"
+            android:layout_gravity="center_horizontal"
+            android:text="START ACTIVITY"/>
+
+    </LinearLayout>

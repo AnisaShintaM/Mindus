@@ -8,9 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import java.util.Calendar;
@@ -19,65 +21,86 @@ import java.util.Calendar;
  * Created by user on 18/11/2016.
  */
 public class AlarmActivity  extends AppCompatActivity {
-    private static AlarmActivity inst;
+
     AlarmManager alarmManager;
-    private PendingIntent pendingIntent;
-    private TimePicker alarmTimePicker;
-    private DatePicker alarmDatePicker;
-    private TextView alarmTextView;
-
-    public static AlarmActivity instance() {
-
-        return inst;
-    }
-    @Override
-    public void onStart() {
-        super.onStart();
-        inst = this;
-    }
+    PendingIntent pendingIntent;
+    private PendingIntent pending_intent;
+    TimePicker alarmTimePicker;
+    DatePicker alarmDatePicker;
+    TextView alarmTextView;
+    Button buttonon;
+    Button buttonoff;
+    final static int RQS_1 = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alarmnotification);
+
+        final Intent myIntent = new Intent(this, alarmreceiver.class);
         alarmTimePicker = (TimePicker) findViewById(R.id.alarmTimePicker);
         alarmDatePicker = (DatePicker) findViewById(R.id.alarmDatePicker);
-        alarmTextView = (TextView) findViewById(R.id.alarmText);
-        ToggleButton alarmToggle = (ToggleButton) findViewById(R.id.alarmToggle);
+        alarmTextView = (TextView) findViewById(R.id.textView);
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
+        Calendar now = Calendar.getInstance();
+
+        alarmDatePicker.init(
+                now.get(Calendar.YEAR),
+                now.get(Calendar.MONTH),
+                now.get(Calendar.DAY_OF_MONTH),
+                null);
+
+        alarmTimePicker.setCurrentHour(now.get(Calendar.HOUR_OF_DAY));
+        alarmTimePicker.setCurrentMinute(now.get(Calendar.MINUTE));
+
+        buttonon = (Button)findViewById(R.id.buttonon);
+        buttonoff = (Button) findViewById(R.id.buttonoff);
+        buttonon.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View arg0) {
+                Calendar current = Calendar.getInstance();
+
+                Calendar cal = Calendar.getInstance();
+                cal.set(alarmDatePicker.getYear(),
+                        alarmDatePicker.getMonth(),
+                        alarmDatePicker.getDayOfMonth(),
+                        alarmTimePicker.getCurrentHour(),
+                        alarmTimePicker.getCurrentMinute(),
+                        00);
+
+                if(cal.compareTo(current) <= 0){
+                    Toast.makeText(getApplicationContext(),
+                            "Invalid Date/Time",
+                            Toast.LENGTH_LONG).show();
+                }else{
+                    setAlarm(cal);
+                }
+
+            }});
+
+        buttonoff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myIntent.putExtra("extra", "no");
+                sendBroadcast(myIntent);
+
+                alarmManager.cancel(pending_intent);
+            }
+        });
+
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+    private void setAlarm(Calendar targetCal){
 
-    public void onToggleClicked(View view) {
-        if (((ToggleButton) view).isChecked()) {
-            Log.d("MyActivity", "Alarm Off");
-            Calendar calendar = Calendar.getInstance();
-            calendar.set(Calendar.HOUR_OF_DAY, alarmTimePicker.getCurrentHour());
-            calendar.set(Calendar.SECOND, 0);
-            calendar.set(Calendar.MINUTE, alarmTimePicker.getCurrentMinute());
-            calendar.set(Calendar.DAY_OF_MONTH, alarmDatePicker.getDayOfMonth());
-            calendar.set(Calendar.MONTH, alarmDatePicker.getMonth());
-            calendar.set(Calendar.YEAR, alarmDatePicker.getYear());
-            Intent myIntent = new Intent(AlarmActivity.this, alarmreceiver.class);
-            pendingIntent = PendingIntent.getBroadcast(AlarmActivity.this, 0, myIntent, 0);
-            alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-        } else {
-            alarmManager.cancel(pendingIntent);
-            setAlarmText("");
-            Log.d("MyActivity", "Alarm On");
-        }
-    }
+        alarmTextView.setText("\n\n***\n"
+                + "Alarm is set@ " + targetCal.getTime() + "\n"
+                + "***\n");
 
-    public void setAlarmText(String alarmText) {
-        alarmTextView.setText(alarmText);
+        Intent intent = new Intent(getBaseContext(), alarmreceiver.class);
+        intent.putExtra("extra", "on");
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(), RQS_1, intent, 0);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, targetCal.getTimeInMillis(), pendingIntent);
     }
 }

@@ -16,7 +16,7 @@ public class Main3Activity extends AppCompatActivity {
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Main3Activity.this, TambahActivity.class));
+                startActivity(new Intent(Main3Activity.this, MindMainActivity.class));
             }
         });
 
