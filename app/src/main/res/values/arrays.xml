@@ -16,51 +16,36 @@
   -->
 <resources>
     <string-array name="place_task">
-        <item></item>
-        <item>Physic Assignment</item>
         <item>English for Computer User</item>
+        <item>Physic Assignment</item>
         <item>Object Oriented Programming</item>
-        <item>Web Programming</item>
-        <item>Mobile Programming</item>
     </string-array>
     <string-array name="place_desc">
         <item>Take the quiz number 1 until 10 </item>
         <item>Make summary of third subject</item>
-        <item>Make a video about fiber optic</item>
         <item>Make a study report</item>
-        <item>Make an online shop website </item>
-        <item>Make an application</item>
+
     </string-array>
     <string-array name="place_details">
         <item>The quiz have been posted on GoogleClassroom
         </item>
         <item>The summary is about Ultraviolet and Infrared
         </item>
-        <item>The video have to consist structure, definition and kind of fiber optic
-        </item>
         <item>The report have to report all the exercise of seventh subject
         </item>
-        <item>The online shop have to sell any clothes and outfits
-        </item>
-        <item>The application must have consist an aim to help other
-        </item>
+
     </string-array>
     <string-array name="place_due">
         <item> 7 of January, 2016 </item>
         <item> 2 of January, 2016</item>
-        <item>13 of March, 2016</item>
         <item>28 of November, 2016</item>
-        <item> 11 of December , 2016</item>
-        <item>20 of December, 2016</item>
+
     </string-array>
     <string-array name="place_detail" />
     <string-array name="place_location" />
     <array name="places_picture">
         <item>@drawable/a</item>
         <item>@drawable/b</item>
-        <item>@drawable/c</item>
         <item>@drawable/d</item>
-        <item>@drawable/e</item>
-        <item>@drawable/f</item>
     </array>
 </resources>
