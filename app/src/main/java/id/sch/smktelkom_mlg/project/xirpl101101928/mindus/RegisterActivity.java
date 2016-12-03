@@ -18,7 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
+public class RegisterActivity extends AppCompatActivity {
 
     private Button buttonRegister;
     private EditText EditTextEmail;
@@ -32,7 +32,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        firebaseAuth = FirebaseAuth.getInstance();
+       /* firebaseAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
         buttonRegister = (Button) findViewById(R.id.btn_register);
 
@@ -66,7 +66,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             registerUser();
         }
         if (view == textViewsignin) {
-
         }
     }
 
@@ -97,5 +96,5 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
                     }
                 });
-    }
+    */}
 }
